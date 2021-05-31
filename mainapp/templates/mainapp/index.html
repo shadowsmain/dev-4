@@ -1,0 +1,21 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+
+
+    {% if user.is_authenticated %}
+        <div style="text-align: center; font-size: 72px">
+        {% for i in num %}
+            {{ i }}
+        {% endfor %}
+        </div>
+
+    {% endif %}
+
+
+    {% if not user.is_authenticated %}
+        <h1 style="text-align: center">Рандомное число вам недоступно</h1>
+        <h4 style="text-align: center">Что бы увидеть нужно <a href="{% url 'auth:login' %}">авторизоваться</a></h4>
+    {% endif %}
+
+
+{% endblock %}
